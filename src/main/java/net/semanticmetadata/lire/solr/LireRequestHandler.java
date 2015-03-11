@@ -233,7 +233,7 @@ public class LireRequestHandler extends RequestHandlerBase {
         int[] hashes = null;
         // wrapping the whole part in the try
         try {
-            BufferedImage img = ImageIO.read(new URL(paramUrl).openStream());
+            BufferedImage img = ImageIO.read(new URL(paramUrl.replaceAll(" ", "%20")).openStream());
             img = ImageUtils.trimWhiteSpace(img);
             // getting the right feature per field:
             if (paramField == null || FeatureRegistry.getClassForHashField(paramField) == null) // if the feature is not registered.

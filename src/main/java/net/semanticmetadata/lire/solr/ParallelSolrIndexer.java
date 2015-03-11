@@ -448,7 +448,7 @@ public class ParallelSolrIndexer implements Runnable {
                         //ByteArrayInputStream b = new ByteArrayInputStream(tmp.getBuffer());
 
                         // reads the image. Make sure twelve monkeys lib is in the path to read all jpegs and tiffs.
-                        BufferedImage read = ImageIO.read(new URL(fileUrl).openStream());
+                        BufferedImage read = ImageIO.read(new URL(fileUrl.replaceAll(" ", "%20")).openStream());
                         // --------< preprocessing >-------------------------
                         // converts color space to INT_RGB
                         BufferedImage img = ImageUtils.createWorkingCopy(read);
